@@ -12,6 +12,7 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_navigation_bar_height"
+        app:itemIconSize="21dp"
         app:itemIconTint="@color/bottom_navigation_item_color"
         app:itemBackground="@drawable/bottom_navigation_bar_item_bg"
         app:labelVisibilityMode="unlabeled"

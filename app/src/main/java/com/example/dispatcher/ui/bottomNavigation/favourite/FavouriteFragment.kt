@@ -1,4 +1,4 @@
-package com.example.dispatcher.bottomNavigation.account
+package com.example.dispatcher.ui.bottomNavigation.favourite
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.dispatcher.databinding.FragmentAccountBinding
+import com.example.dispatcher.databinding.FragmentFavouriteBinding
 
-class AccountFragment : Fragment() {
+class FavouriteFragment : Fragment() {
 
-    private lateinit var accountViewModel: AccountViewModel
-    private var _binding: FragmentAccountBinding? = null
+    private lateinit var favouriteViewModel: FavouriteViewModel
+    private var _binding: FragmentFavouriteBinding? = null
 
     private val binding get() = _binding!!
 
@@ -20,11 +20,10 @@ class AccountFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        accountViewModel =
-            ViewModelProvider(this).get(AccountViewModel::class.java)
+        favouriteViewModel =
+            ViewModelProvider(this).get(FavouriteViewModel::class.java)
 
-        _binding = FragmentAccountBinding.inflate(inflater, container, false)
-
+        _binding = FragmentFavouriteBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -1,4 +1,4 @@
-package com.example.dispatcher.bottomNavigation.favourite
+package com.example.dispatcher.ui.bottomNavigation.favourite
 
 import androidx.lifecycle.ViewModel
 

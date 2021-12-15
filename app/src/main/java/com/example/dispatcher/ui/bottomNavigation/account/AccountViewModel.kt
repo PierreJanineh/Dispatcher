@@ -1,4 +1,4 @@
-package com.example.dispatcher.bottomNavigation.account
+package com.example.dispatcher.ui.bottomNavigation.account
 
 import androidx.lifecycle.ViewModel
 

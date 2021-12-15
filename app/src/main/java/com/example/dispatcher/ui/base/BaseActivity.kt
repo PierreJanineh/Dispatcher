@@ -1,10 +1,11 @@
-package com.example.dispatcher
+package com.example.dispatcher.ui.base
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.dispatcher.R
 import com.example.dispatcher.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {

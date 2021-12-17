@@ -39,14 +39,14 @@ abstract class BaseFragment<VB_CHILD : ViewBinding> : Fragment() {
             ?: error("Please add your inflated binding class instance at 0th position in list")
     }
 
-    abstract fun attachBinding(
+    protected abstract fun attachBinding(
         list: MutableList<VB_CHILD>,
         layoutInflater: LayoutInflater,
         container: ViewGroup?,
         attachToRoot: Boolean
     )
 
-    abstract fun setup()
+    protected abstract fun setup()
 
     fun withBinding(block: (VB_CHILD.() -> Unit)?): VB_CHILD {
         val bindingAfterRunning:VB_CHILD? = binding?.apply { block?.invoke(this) }

@@ -8,7 +8,7 @@ import com.example.dispatcher.model.Article
 
 abstract class ArticleBaseFragment: BaseFragment<ArticleFragmentBinding>() {
 
-    var articleList: ArrayList<Article>? = null
+    lateinit var articleList: ArrayList<Article>
 
     override fun attachBinding(
         list: MutableList<ArticleFragmentBinding>,

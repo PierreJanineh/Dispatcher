@@ -23,9 +23,21 @@ android {
             applicationIdSuffix ".debug"
             debuggable true
         }
-        production {
+        release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "version"
+    productFlavors{
+        dev {
+            applicationIdSuffix ".dev"
+            dimension "version"
+            signingConfig signingConfigs.debug
+        }
+        prod {
+            applicationIdSuffix ".prod"
+            dimension "version"
         }
     }
     compileOptions {

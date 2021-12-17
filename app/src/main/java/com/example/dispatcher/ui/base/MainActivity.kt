@@ -8,11 +8,7 @@ import com.example.dispatcher.databinding.ActivityMainBinding
 import com.example.dispatcher.ui.splashScreen.SplashScreenFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
-    private lateinit var binding: ActivityMainBinding
-
     override fun setup() {
-        binding = ActivityMainBinding.inflate(layoutInflater)
-
         displaySplashScreen()
     }
 
@@ -26,13 +22,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun displaySplashScreen() {
         this.withBinding {
             this.root.setBackgroundResource(R.color.primary_color)
-        }
 
-        val trans = supportFragmentManager.beginTransaction()
-        trans.runOnCommit {
-            placeMainFragment()
+            val trans = supportFragmentManager.beginTransaction()
+            trans.runOnCommit {
+                placeMainFragment()
+            }
+            trans.add(R.id.frame_layout, SplashScreenFragment()).commit()
         }
-        trans.add(R.id.frame_layout, SplashScreenFragment.newInstance()).commit()
     }
 
     private fun placeMainFragment() {

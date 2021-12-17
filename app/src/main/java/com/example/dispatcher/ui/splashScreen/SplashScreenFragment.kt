@@ -35,9 +35,4 @@ class SplashScreenFragment : Fragment() {
         super.onResume()
         activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() = MainFragment()
-    }
 }

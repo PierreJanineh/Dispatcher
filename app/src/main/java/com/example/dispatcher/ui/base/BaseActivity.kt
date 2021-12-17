@@ -2,31 +2,41 @@ package com.example.dispatcher.ui.base
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.ActionBar
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import com.example.dispatcher.R
-import com.example.dispatcher.databinding.ActivityBaseBinding
+import android.view.LayoutInflater
+import android.view.View
+import androidx.viewbinding.ViewBinding
 
-class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity<VB_CHILD : ViewBinding> : AppCompatActivity() {
 
-    private lateinit var binding: ActivityBaseBinding
+    private var binding: VB_CHILD? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityBaseBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-        supportActionBar?.setCustomView(R.layout.home_header)
-
-        setUpNavigation()
+        setContentView(getInflatedLayout(layoutInflater))
+        setup()
     }
 
-    private fun setUpNavigation() {
-        val bottomNavigationView = binding.navigation
-        val navController = findNavController(R.id.nav_host_fragment)
-        bottomNavigationView.setupWithNavController(navController)
+    override fun onDestroy() {
+        super.onDestroy()
+        this.binding = null
+    }
+
+    private fun getInflatedLayout(inflater: LayoutInflater): View {
+        val tempList = mutableListOf<VB_CHILD>()
+        attachBinding(tempList, inflater)
+        this.binding = tempList[0]
+
+        return binding?.root?: error("Please add your inflated binding class instance at 0th position in list")
+    }
+
+    abstract fun attachBinding(list: MutableList<VB_CHILD>, layoutInflater: LayoutInflater)
+
+    abstract fun setup()
+
+    fun withBinding(block: (VB_CHILD.() -> Unit)?): VB_CHILD {
+        val bindingAfterRunning:VB_CHILD? = binding?.apply { block?.invoke(this) }
+        return bindingAfterRunning
+            ?:  error("Accessing binding outside of lifecycle: ${this::class.java.simpleName}")
     }
 
 }

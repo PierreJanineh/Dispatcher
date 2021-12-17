@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/action_avatar"
-        android:name="com.example.dispatcher.ui.bottomNavigation.account.AccountFragment"
+        android:name="com.example.dispatcher.ui.main.bottomNavigation.account.AccountFragment"
         android:label="@string/menu_user_avatar"
         tools:layout="@layout/fragment_account" />
 
     <fragment
         android:id="@+id/action_dashboard"
-        android:name="com.example.dispatcher.ui.bottomNavigation.dashboard.DashboardFragment"
+        android:name="com.example.dispatcher.ui.main.bottomNavigation.dashboard.DashboardFragment"
         android:label="@string/menu_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/action_favourite"
-        android:name="com.example.dispatcher.ui.bottomNavigation.favourite.FavouriteFragment"
+        android:name="com.example.dispatcher.ui.main.bottomNavigation.favourite.FavouriteFragment"
         android:label="@string/menu_favourite"
         tools:layout="@layout/fragment_favourite" />
 </navigation>

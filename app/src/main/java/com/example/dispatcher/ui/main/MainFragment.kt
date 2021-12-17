@@ -1,4 +1,4 @@
-package com.example.dispatcher.ui.base
+package com.example.dispatcher.ui.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,6 +6,7 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.dispatcher.R
 import com.example.dispatcher.databinding.FragmentMainBinding
+import com.example.dispatcher.ui.base.BaseFragment
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun setup() {

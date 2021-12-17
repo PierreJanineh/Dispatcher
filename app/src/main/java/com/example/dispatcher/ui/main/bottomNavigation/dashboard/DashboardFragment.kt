@@ -1,4 +1,4 @@
-package com.example.dispatcher.ui.bottomNavigation.dashboard
+package com.example.dispatcher.ui.main.bottomNavigation.dashboard
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

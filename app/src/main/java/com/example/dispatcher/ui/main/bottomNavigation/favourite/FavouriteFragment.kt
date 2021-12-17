@@ -1,4 +1,4 @@
-package com.example.dispatcher.ui.bottomNavigation.favourite
+package com.example.dispatcher.ui.main.bottomNavigation.favourite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

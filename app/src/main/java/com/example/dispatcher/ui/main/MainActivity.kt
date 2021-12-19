@@ -1,26 +1,50 @@
 package com.example.dispatcher.ui.main
 
 import android.view.LayoutInflater
-import androidx.appcompat.app.ActionBar
+import android.os.Handler
+import android.os.Looper
 import com.example.dispatcher.R
-import com.example.dispatcher.databinding.ActivityMainBinding
 import com.example.dispatcher.ui.base.BaseActivity
+import com.example.dispatcher.ui.splashScreen.SplashScreenFragment
+import com.example.dispatcher.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun setup() {
-        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-        supportActionBar?.setCustomView(R.layout.home_header)
-
-        withBinding {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.frame_layout, MainFragment()).commit()
-        }
+        displaySplashScreen()
     }
 
     override fun attachBinding(
         list: MutableList<ActivityMainBinding>,
         layoutInflater: LayoutInflater
     ) {
-        list.add(0, ActivityMainBinding.inflate(layoutInflater))
+        list.add(ActivityMainBinding.inflate(layoutInflater))
+    }
+
+    private fun displaySplashScreen() {
+        this.withBinding {
+            this.root.setBackgroundResource(R.color.primary_color)
+
+            val trans = supportFragmentManager.beginTransaction()
+            trans.runOnCommit {
+                placeMainFragment()
+            }
+            trans.add(R.id.frame_layout, SplashScreenFragment()).commit()
+        }
+    }
+
+    private fun placeMainFragment() {
+        val mainFragment = MainFragment()
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.frame_layout, mainFragment)
+                .commit()
+
+            this.withBinding {
+                this.root.setBackgroundResource(R.color.on_secondary_color)
+            }
+
+        }, 3000)
     }
 }

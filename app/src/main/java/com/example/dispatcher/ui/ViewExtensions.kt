@@ -4,7 +4,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
-import com.example.dispatcher.ui.base.article.ArticleBaseFragment
+import com.example.dispatcher.ui.components.article.ArticleBaseFragment
 
 class ViewExtensions {
     /**

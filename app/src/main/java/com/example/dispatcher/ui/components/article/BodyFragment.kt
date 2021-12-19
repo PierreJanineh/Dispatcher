@@ -1,9 +1,9 @@
-package com.example.dispatcher.ui.base.article
+package com.example.dispatcher.ui.components.article
 
 import com.example.dispatcher.R
 import com.example.dispatcher.databinding.ArticleFragmentBinding
 
-class AuthorFragment: ArticleBaseFragment() {
+class BodyFragment: ArticleBaseFragment() {
     override fun setup() {
         super.setup()
 
@@ -13,11 +13,10 @@ class AuthorFragment: ArticleBaseFragment() {
     }
 
     private fun configureTextView(binding: ArticleFragmentBinding) {
-        binding.textView.text = articleList[0].author
+        binding.textView.text = articleList[0].body?.take(2)
 
         binding.textView.textSize = 14F
-        binding.textView.lineHeight = 22
-        binding.textView.letterSpacing = 0.25F
-        binding.textView.setTextColor(resources.getColor(R.color.author_fragment_text_color, null))
+//            binding.textView.lineHeight = 16 //looks bad on current font
+        binding.textView.setTextColor(resources.getColor(R.color.body_fragment_text_color, null))
     }
 }

@@ -1,4 +1,4 @@
-package com.example.dispatcher.ui.base.article
+package com.example.dispatcher.ui.components.article
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -3,6 +3,7 @@ package com.example.dispatcher.ui.main
 import android.view.LayoutInflater
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.ActionBar
 import com.example.dispatcher.R
 import com.example.dispatcher.ui.base.BaseActivity
 import com.example.dispatcher.ui.splashScreen.SplashScreenFragment
@@ -10,6 +11,8 @@ import com.example.dispatcher.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun setup() {
+        setupActionBar()
+
         displaySplashScreen()
     }
 
@@ -18,6 +21,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         layoutInflater: LayoutInflater
     ) {
         list.add(ActivityMainBinding.inflate(layoutInflater))
+    }
+
+    private fun setupActionBar() {
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setCustomView(R.layout.home_header)
+
+        supportActionBar?.hide()
     }
 
     private fun displaySplashScreen() {
@@ -40,6 +50,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 .beginTransaction()
                 .replace(R.id.frame_layout, mainFragment)
                 .commit()
+            supportActionBar?.show()
 
             this.withBinding {
                 this.root.setBackgroundResource(R.color.on_secondary_color)

@@ -5,4 +5,6 @@
 
     <color name="secondary_color">#F8F8FF</color>
     <color name="on_secondary_color">#FFF</color>
+  
+    <color name="bottom_navigation_item_color">#B6B6EA</color>
 </resources>

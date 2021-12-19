@@ -11,6 +11,10 @@
         <item name="colorOnSecondary">@color/on_secondary_color</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <!-- Action Bar. -->
+        <item name="actionBarSize">@dimen/action_bar_height</item>
+        <!-- Bottom Navigation. -->
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView</item>
+        <item name="colorSurface">?attr/colorPrimary</item>
     </style>
 </resources>

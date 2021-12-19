@@ -1,9 +1,9 @@
-package com.example.dispatcher.ui.base;
+package com.example.dispatcher.ui.base
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseActivity<VB_CHILD : ViewBinding> : AppCompatActivity() {

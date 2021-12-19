@@ -21,7 +21,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         container: ViewGroup?,
         attachToRoot: Boolean
     ) {
-        list.add(FragmentMainBinding.inflate(layoutInflater))
+        list.add(0, FragmentMainBinding.inflate(layoutInflater))
     }
 
     private fun setUpNavigation(binding: FragmentMainBinding) {

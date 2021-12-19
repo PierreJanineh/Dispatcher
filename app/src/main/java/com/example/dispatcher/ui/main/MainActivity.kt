@@ -21,6 +21,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         list: MutableList<ActivityMainBinding>,
         layoutInflater: LayoutInflater
     ) {
-        list.add(ActivityMainBinding.inflate(layoutInflater))
+        list.add(0, ActivityMainBinding.inflate(layoutInflater))
     }
 }

@@ -38,5 +38,4 @@ abstract class BaseActivity<VB_CHILD : ViewBinding> : AppCompatActivity() {
         return bindingAfterRunning
             ?:  error("Accessing binding outside of lifecycle: ${this::class.java.simpleName}")
     }
-
 }

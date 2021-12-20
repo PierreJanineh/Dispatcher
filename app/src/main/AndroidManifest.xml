@@ -6,7 +6,7 @@
 
     <application
         android:allowBackup="true"
-        android:name=".model.Application"
+        android:name=".model.DispatcherApplication"
         android:icon="@drawable/ic_dispatcher_logo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_dispatcher_logo"

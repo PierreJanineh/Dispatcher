@@ -7,9 +7,8 @@ import com.example.dispatcher.model.network.ApiConstants.Companion.API_BASE_URL
 import com.example.dispatcher.model.network.ApiConstants.Companion.API_VERSION
 import com.example.dispatcher.model.network.ApiConfig
 import com.example.dispatcher.model.network.NetworkManager
-import okhttp3.Interceptor.Chain
 
-class Application: Application() {
+class DispatcherApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -19,9 +18,6 @@ class Application: Application() {
                 .Builder(API_BASE_URL)
                 .setAuthHeader(API_AUTH_KEY, API_AUTH_VALUE)
                 .setVersion(API_VERSION)
-                .addInterceptor { chain: Chain ->
-                    chain.proceed(chain.request())
-                }
                 .build()
         )
     }

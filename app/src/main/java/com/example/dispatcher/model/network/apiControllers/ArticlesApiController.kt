@@ -1,13 +1,11 @@
-package com.example.dispatcher.model.network.services
+package com.example.dispatcher.model.network.apiControllers
 
 import com.example.dispatcher.model.ArticlesResponse
 import com.example.dispatcher.model.network.ApiConstants.Companion.API_SEARCH_KEYWORD_KEY
 import com.example.dispatcher.model.network.ApiConstants.Companion.ENDPOINT_EVERYTHING
 import com.example.dispatcher.model.network.ApiController
-import retrofit2.Call
+import com.example.dispatcher.model.network.services.ArticlesService
 import retrofit2.Callback
-import retrofit2.http.GET
-import retrofit2.http.QueryMap
 import java.util.HashMap
 
 class ArticlesApiController: ApiController<ArticlesService>() {
@@ -25,13 +23,4 @@ class ArticlesApiController: ApiController<ArticlesService>() {
 
         getApi().getArticles(params).enqueue(callback)
     }
-}
-
-interface ArticlesService {
-    /*
-    Space-only string in [@GET] for avoiding [java.lang.IllegalArgumentException]
-                   [Missing either @GET URL or @Url parameter.]
-     */
-    @GET(" ")
-    fun getArticles(@QueryMap params: Map<String, String>): Call<ArticlesResponse>
 }

@@ -12,7 +12,7 @@ import com.example.dispatcher.model.ArticlesResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.example.dispatcher.model.network.services.ArticlesApiController
+import com.example.dispatcher.model.network.apiControllers.ArticlesApiController
 
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun setup() {

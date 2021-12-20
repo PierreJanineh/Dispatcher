@@ -13,7 +13,7 @@ class BodyFragment: ArticleBaseFragment() {
     }
 
     private fun configureTextView(binding: ArticleFragmentBinding) {
-        binding.textView.text = articleList[0].body?.take(2)
+        binding.textView.text = articleList[0].body
 
         binding.textView.textSize = 14F
 //            binding.textView.lineHeight = 16 //looks bad on current font

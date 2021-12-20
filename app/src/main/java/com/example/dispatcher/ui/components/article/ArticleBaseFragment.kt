@@ -22,6 +22,7 @@ abstract class ArticleBaseFragment: BaseFragment<ArticleFragmentBinding>() {
     }
 
     override fun setup() {
+        articleList = model.getArticleList().value!!
         model.getArticleList().observe(this, { articles ->
             articleList = articles
         })

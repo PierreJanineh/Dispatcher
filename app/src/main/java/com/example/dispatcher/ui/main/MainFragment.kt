@@ -53,6 +53,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                 override fun onFailure(call: Call<ArticlesResponse>, t: Throwable) {
                     t.printStackTrace()
                 }
-            })
+            }, "k")
     }
 }

@@ -13,7 +13,11 @@ data class Article(
     val body: String?,
     val publishedAt: String?,
     val content: String?,
-): Parcelable
+): Parcelable {
+    override fun equals(other: Any?): Boolean {
+        return super.equals(other)
+    }
+}
 
 data class ArticlesResponse(
     val status: String,

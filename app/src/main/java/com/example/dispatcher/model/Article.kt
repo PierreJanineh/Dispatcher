@@ -1,5 +1,9 @@
 package com.example.dispatcher.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Article(
     val title: String?,
     val description: String?,
@@ -9,7 +13,7 @@ data class Article(
     val body: String?,
     val publishedAt: String?,
     val content: String?,
-)
+): Parcelable
 
 data class ArticlesResponse(
     val status: String,

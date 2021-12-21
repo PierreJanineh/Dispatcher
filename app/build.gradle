@@ -35,10 +35,20 @@ android {
             applicationIdSuffix ".dev"
             dimension "version"
             signingConfig signingConfigs.debug
+
+            buildConfigField "String", "API_AUTH_KEY", '"x-api-key"'
+            buildConfigField "String", "API_AUTH_VALUE", '"cfc3dff320ca42e9bb30221934a89c5c"'
+            buildConfigField "String", "API_BASE_URL", '"https://newsapi.org/"'
+            buildConfigField "String", "API_VERSION", '"v2/"'
         }
         prod {
             applicationIdSuffix ".prod"
             dimension "version"
+
+            buildConfigField "String", "API_AUTH_KEY", '"x-api-key"'
+            buildConfigField "String", "API_AUTH_VALUE", '"cfc3dff320ca42e9bb30221934a89c5c"'
+            buildConfigField "String", "API_BASE_URL", '"https://newsapi.org/"'
+            buildConfigField "String", "API_VERSION", '"v2/"'
         }
     }
     compileOptions {
@@ -68,6 +78,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.2'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

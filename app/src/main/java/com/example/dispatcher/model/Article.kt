@@ -6,7 +6,21 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Article(
     val title: String?,
-    val imageUrl: String?,
+    val description: String?,
+    val url: String?,
+    val urlToImage: String?,
     val author: String?,
-    val body: String?
-): Parcelable
+    val body: String?,
+    val publishedAt: String?,
+    val content: String?,
+): Parcelable {
+    override fun equals(other: Any?): Boolean {
+        return super.equals(other)
+    }
+}
+
+data class ArticlesResponse(
+    val status: String,
+    val totalResults: Int,
+    val articles: ArrayList<Article>
+)

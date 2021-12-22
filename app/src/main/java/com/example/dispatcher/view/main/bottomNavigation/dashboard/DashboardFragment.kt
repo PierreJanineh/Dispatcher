@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dispatcher.databinding.FragmentDashboardBinding
 import com.example.dispatcher.view.base.BaseFragment
+import com.example.dispatcher.view.viewAdapters.ArticleAdapter
 import com.example.dispatcher.viewmodel.DashboardViewModel
 
 class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
@@ -24,7 +25,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
     override fun setup() {
         withBinding {
-            val adapter = ArticleAdapter()
+            val adapter = ArticleAdapter(dashboardViewModel.articles, requireActivity())
             val layoutManager = LinearLayoutManager(requireContext())
             layoutManager.orientation = LinearLayoutManager.VERTICAL
             recyclerView.layoutManager = layoutManager

@@ -1,15 +1,15 @@
-package com.example.dispatcher.ui.main.bottomNavigation.account
+package com.example.dispatcher.view.main.bottomNavigation.account
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.example.dispatcher.databinding.FragmentAccountBinding
 import com.example.dispatcher.view.base.BaseFragment
 import com.example.dispatcher.viewmodel.AccountViewModel
 
 class AccountFragment : BaseFragment<FragmentAccountBinding>() {
 
-    private lateinit var accountViewModel: AccountViewModel
+    private val accountViewModel: AccountViewModel by viewModels()
 
     override fun attachBinding(
         list: MutableList<FragmentAccountBinding>,
@@ -21,7 +21,6 @@ class AccountFragment : BaseFragment<FragmentAccountBinding>() {
     }
 
     override fun setup() {
-        accountViewModel =
-            ViewModelProvider(this).get(AccountViewModel::class.java)
+
     }
 }

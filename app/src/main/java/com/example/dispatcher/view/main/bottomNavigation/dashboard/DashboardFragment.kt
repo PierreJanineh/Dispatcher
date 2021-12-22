@@ -2,14 +2,16 @@ package com.example.dispatcher.view.main.bottomNavigation.dashboard
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import com.example.dispatcher.model.Article
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dispatcher.databinding.FragmentDashboardBinding
 import com.example.dispatcher.view.base.BaseFragment
 import com.example.dispatcher.viewmodel.DashboardViewModel
 
 class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private val dashboardViewModel: DashboardViewModel by viewModels()
 
     override fun attachBinding(
         list: MutableList<FragmentDashboardBinding>,
@@ -21,7 +23,18 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
     }
 
     override fun setup() {
-        dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        withBinding {
+            val adapter = ArticleAdapter()
+            val layoutManager = LinearLayoutManager(requireContext())
+            layoutManager.orientation = LinearLayoutManager.VERTICAL
+            recyclerView.layoutManager = layoutManager
+            recyclerView.adapter = adapter
+
+            dashboardViewModel.articles.observe(requireActivity(), {
+                it?.let {
+                    adapter.submitList(it as MutableList<Article>)
+                }
+            })
+        }
     }
 }

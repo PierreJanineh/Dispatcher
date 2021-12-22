@@ -8,7 +8,7 @@
   
     <color name="bottom_navigation_item_color">#B6B6EA</color>
 
-    <color name="title_fragment_text_color">#14142B</color>
-    <color name="author_fragment_text_color">#805A5A89</color>
-    <color name="body_fragment_text_color">#5A5A89</color>
+    <color name="title_text_color">#14142B</color>
+    <color name="author_text_color">#805A5A89</color>
+    <color name="body_text_color">#5A5A89</color>
 </resources>

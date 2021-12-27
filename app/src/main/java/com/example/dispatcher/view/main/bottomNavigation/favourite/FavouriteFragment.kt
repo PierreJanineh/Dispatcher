@@ -2,14 +2,14 @@ package com.example.dispatcher.view.main.bottomNavigation.favourite
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.example.dispatcher.databinding.FragmentFavouriteBinding
 import com.example.dispatcher.view.base.BaseFragment
 import com.example.dispatcher.viewmodel.FavouriteViewModel
 
 class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>() {
 
-    private lateinit var favouriteViewModel: FavouriteViewModel
+    private val favouriteViewModel: FavouriteViewModel by viewModels()
 
     override fun attachBinding(
         list: MutableList<FragmentFavouriteBinding>,
@@ -21,8 +21,7 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>() {
     }
 
     override fun setup() {
-        favouriteViewModel =
-            ViewModelProvider(this).get(FavouriteViewModel::class.java)
+
     }
 
 }

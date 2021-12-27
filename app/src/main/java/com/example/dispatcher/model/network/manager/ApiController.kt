@@ -7,7 +7,7 @@ abstract class ApiController<T> {
         return mNetworkManager.registerController(controller)
     }
 
-    fun useHome(): Boolean {
+    open fun useHome(): Boolean {
         return true
     }
 

@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Dispatcher</string>
 
+    <!--  Main Navigation Menu  -->
+    <string name="splash_screen">Splash Screen</string>
+    <string name="main_fragment">Main</string>
+
     <!--  Bottom Navigation Menu  -->
     <string name="menu_dashboard">Dashboard</string>
     <string name="menu_user_avatar">Avatar</string>

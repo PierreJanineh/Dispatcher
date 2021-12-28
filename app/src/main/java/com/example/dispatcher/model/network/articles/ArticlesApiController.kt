@@ -14,7 +14,7 @@ import com.example.dispatcher.model.network.articles.ArticlesApiConstants.API__E
 import com.example.dispatcher.model.network.articles.ArticlesApiConstants.API__EVERYTHING_TO__KEY
 import com.example.dispatcher.model.network.articles.ArticlesApiConstants.ENDPOINT_EVERYTHING
 import com.example.dispatcher.model.network.manager.ApiController
-import retrofit2.Callback
+import retrofit2.Response
 import java.util.HashMap
 
 class ArticlesApiController: ApiController<ArticlesApi>() {
@@ -26,18 +26,17 @@ class ArticlesApiController: ApiController<ArticlesApi>() {
         return ArticlesApi::class.java
     }
 
-    fun getArticles(callback: Callback<ArticlesResponse>,
-                    q: String? = null,
-                    qInTitle: String? = null,
-                    sources: String? = null,
-                    domains: String? = null,
-                    excludeDomains: String? = null,
-                    from: String? = null,
-                    to: String? = null,
-                    language: String? = null,
-                    sortBy: String? = null,
-                    pageSize: Int? = null,
-                    page: Int? = null) {
+    suspend fun getArticles(q: String? = null,
+                            qInTitle: String? = null,
+                            sources: String? = null,
+                            domains: String? = null,
+                            excludeDomains: String? = null,
+                            from: String? = null,
+                            to: String? = null,
+                            language: String? = null,
+                            sortBy: String? = null,
+                            pageSize: Int? = null,
+                            page: Int? = null): Response<ArticlesResponse> {
         val params: MutableMap<String, String> = HashMap()
         when {
             !q.isNullOrEmpty() -> params[API__EVERYTHING_Q__KEY] = q
@@ -53,6 +52,6 @@ class ArticlesApiController: ApiController<ArticlesApi>() {
             page != null -> params[API__EVERYTHING_PAGE__KEY] = "$page"
         }
 
-        getApi().getArticles(params).enqueue(callback)
+        return getApi().getArticles(params)
     }
 }

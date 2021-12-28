@@ -9,7 +9,7 @@ import com.example.dispatcher.model.network.headlines.TopHeadlinesConstants.API_
 import com.example.dispatcher.model.network.headlines.TopHeadlinesConstants.API__HEADLINES_SOURCES__KEY
 import com.example.dispatcher.model.network.headlines.TopHeadlinesConstants.ENDPOINT_TOP
 import com.example.dispatcher.model.network.manager.ApiController
-import retrofit2.Callback
+import retrofit2.Response
 import java.util.HashMap
 
 class TopHeadlinesApiController: ApiController<TopHeadlinesApi>() {
@@ -21,13 +21,12 @@ class TopHeadlinesApiController: ApiController<TopHeadlinesApi>() {
         return TopHeadlinesApi::class.java
     }
 
-    fun getTopArticles(callback: Callback<ArticlesResponse>,
-                       country: String? = null,
+    suspend fun getTopArticles(country: String? = null,
                        category: String? = null,
                        sources: String? = null,
                        q: String? = null,
                        pageSize: Int? = null,
-                       page: Int? = null){
+                       page: Int? = null): Response<ArticlesResponse> {
         val params: MutableMap<String, String> = HashMap()
         when {
             !country.isNullOrEmpty() -> params[API__HEADLINES_COUNTRY__KEY] = country
@@ -38,6 +37,6 @@ class TopHeadlinesApiController: ApiController<TopHeadlinesApi>() {
             page != null -> params[API__HEADLINES_PAGE__KEY] = "$page"
         }
 
-        getApi().getTopArticles(params).enqueue(callback)
+        return getApi().getArticles(params)
     }
 }

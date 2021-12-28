@@ -3,14 +3,19 @@ package com.example.dispatcher.view.main
 import android.view.LayoutInflater
 import android.os.Handler
 import android.os.Looper
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBar
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.dispatcher.R
 import com.example.dispatcher.view.base.BaseActivity
 import com.example.dispatcher.databinding.ActivityMainBinding
+import com.example.dispatcher.view.fragments.SplashScreenFragmentDirections
+import com.example.dispatcher.viewmodel.AuthenticationViewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
+    val viewModel: AuthenticationViewModel by viewModels()
+
     override fun setup() {
         setupActionBar()
 
@@ -44,9 +49,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun placeMainFragment(navController: NavController) {
         Handler(Looper.getMainLooper()).postDelayed({
+            var action = SplashScreenFragmentDirections.actionSplashScreenToLoginFragment()
 
-            navController.navigate(R.id.main_fragment)
-            supportActionBar?.show()
+            if (viewModel.isUserSignedIn())
+                action = SplashScreenFragmentDirections.actionSplashScreenToMainFragment()
+
+            navController.navigate(action)
 
             this.withBinding {
                 this.root.setBackgroundResource(R.color.on_secondary_color)

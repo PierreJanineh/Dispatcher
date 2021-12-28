@@ -11,7 +11,33 @@
         android:label="@string/splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
+            android:id="@+id/action_splash_screen_to_login_fragment"
+            app:destination="@id/login_fragment" />
+        <action
             android:id="@+id/action_splash_screen_to_main_fragment"
+            app:destination="@id/main_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.dispatcher.view.fragments.LoginFragment"
+        android:label="@string/login_fragment"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_fragment_to_main_fragment"
+            app:destination="@id/main_fragment" />
+        <action
+            android:id="@+id/action_login_fragment_to_signup_fragment"
+            app:destination="@id/signup_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signup_fragment"
+        android:name="com.example.dispatcher.view.fragments.SignupFragment"
+        android:label="@string/signup_fragment"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signup_fragment_to_main_fragment"
             app:destination="@id/main_fragment" />
     </fragment>
 

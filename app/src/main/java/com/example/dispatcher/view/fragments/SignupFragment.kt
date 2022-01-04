@@ -48,7 +48,7 @@ class SignupFragment: BaseFragment<FragmentSignupBinding>() {
 
     private fun signUp(email: String, password: String) {
         viewModel.signUp(email, password) { task ->
-            if (task.isSuccessful) navigateToMain()
+            if (task.isSuccessful && viewModel.isUserSignedIn()) navigateToMain()
         }
     }
 }

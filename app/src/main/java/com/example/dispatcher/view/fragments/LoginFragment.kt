@@ -1,6 +1,5 @@
 package com.example.dispatcher.view.fragments
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -56,11 +55,9 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>() {
 
     private fun signIn(email: String, password: String) {
         viewModel.signIn(email, password) { task ->
-            if (task.isSuccessful) {
+            if (task.isSuccessful && viewModel.isUserSignedIn()) {
                 navigateToMain()
             } else {
-                Log.d("AUTH", task.exception.toString())
-
                 val binding = withBinding {}
                 when {
                     (task.exception is FirebaseAuthInvalidUserException) ->

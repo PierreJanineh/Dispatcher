@@ -2,6 +2,7 @@ package com.example.dispatcher.view.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.dispatcher.R
@@ -11,6 +12,7 @@ import com.example.dispatcher.view.base.BaseFragment
 class MainFragment : BaseFragment<FragmentMainBinding>() {
     override fun setup() {
         withBinding {
+            (requireActivity() as AppCompatActivity).supportActionBar?.show()
             setUpNavigation(this)
         }
     }

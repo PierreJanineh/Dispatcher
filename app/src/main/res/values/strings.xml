@@ -1,6 +1,22 @@
 <resources>
     <string name="app_name">Dispatcher</string>
 
+    <!--  Main Navigation Menu  -->
+    <string name="splash_screen">Splash Screen</string>
+    <string name="main_fragment">Main</string>
+    <string name="login_fragment">Login</string>
+    <string name="signup_fragment">Signup</string>
+
+    <!--  Authentication  -->
+    <string name="email">Your email</string>
+    <string name="password">Password</string>
+    <string name="reenter_password">Re-Enter Password</string>
+    <string name="button_login">Login</string>
+    <string name="button_signup">Signup</string>
+
+    <string name="email_error">Invalid email</string>
+    <string name="password_error">Invalid password</string>
+
     <!--  Bottom Navigation Menu  -->
     <string name="menu_dashboard">Dashboard</string>
     <string name="menu_user_avatar">Avatar</string>
